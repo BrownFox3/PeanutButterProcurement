@@ -1,0 +1,95 @@
+﻿<Window x:Class="PeanutButterProcurement.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PeanutButterProcurement"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" RenderTransformOrigin="0.5,0.5">
+
+    <Window.Resources>
+        <!--Label Styling-->
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="Background" Value="#88AAAAAA"/>
+            <Setter Property="Padding" Value="20,10,20,10"/>
+            <Setter Property="Foreground" >
+                <Setter.Value>
+                    <LinearGradientBrush >
+                        <GradientStop Color="Black" Offset=".32"/>
+                        <GradientStop Color="#FFEA0C0C" Offset=".32"/>
+                        <GradientStop Color="#FFEA0C0C" Offset=".665"/>
+                        <GradientStop Color="#FF1C82B4" Offset=".665"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--Button Styling-->
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Foreground" >
+                <Setter.Value>
+                    <LinearGradientBrush>
+                        <GradientStop Color="White" Offset="0"/>
+                        <GradientStop Color="#FF1C82B4" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="#FF555555"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="bdr_main" BorderThickness="2" BorderBrush="#FF9C7337" Background="#FF363636">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" Margin="8,6,8,6" ContentSource="Content" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="bdr_main" Property="BorderBrush" Value="#FF4697CB"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="bdr_main" Property="BorderBrush" Value="#FFA3EBFA"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0" SpreadMethod="Repeat">
+            <LinearGradientBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleY="-0.2" ScaleX="1"/>
+                    <SkewTransform AngleY="30" AngleX="-20" CenterY="0.5" CenterX="0.5"/>
+                    <RotateTransform Angle="5" CenterY="0.5" CenterX="0.5"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </LinearGradientBrush.RelativeTransform>
+            <GradientStop Color="#FFAA772F" Offset="1"/>
+            <GradientStop Color="#FFAA772F"/>
+            <GradientStop Color="#FF9B7237" Offset="0.357"/>
+            <GradientStop Color="#FFA87A37" Offset="0.78"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
+    <Grid>
+        <Label Content="Welcome to PeanutButterProcurement" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="127,43,0,0"/>
+        <Button Content="Create Invoice" HorizontalAlignment="Left" Margin="102,119,0,0" VerticalAlignment="Top" Width="150"/>
+        <Button Content="Edit Invoice" HorizontalAlignment="Left" Margin="313,119,0,0" VerticalAlignment="Top" Width="150"/>
+        <Button Content="Delete invoice" HorizontalAlignment="Left" Margin="528,119,0,0" VerticalAlignment="Top" Width="150"/>
+        <DockPanel Margin="0,0,0,380">
+            <Menu DockPanel.Dock="Top" Height="30" VerticalAlignment="Top">
+                <MenuItem Header="_Update">
+                </MenuItem>
+                <MenuItem Header="_Search">
+
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+
+    </Grid>
+</Window>
